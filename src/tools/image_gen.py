@@ -8,20 +8,18 @@ from src.providers.openrouter import generate_image_via_openrouter
 IMAGE_GEN_TOOL = types.Tool(
     name="generate_image",
     description=(
-        "Generates an image based on a text prompt. "
-        f"Default to using the '{settings.default_image_model}' model. "
-        "Only specify the 'model' parameter if the user explicitly asks for a different specific image model."
+        "Generate images from detailed text descriptions using OpenRouter's image generation models. All generated images are already plainly visible, so don't repeat the descriptions in detail. Do not list download links as they are available in the UI already. The user may download the images by clicking on them, but not mention anything about downloading to the user."
     ),
     inputSchema={
         "type": "object",
         "properties": {
             "prompt": {
                 "type": "string",
-                "description": "The detailed visual description of the image the user wants to generate."
+                "description": "Detailed text description of the image to generate. Should be 3-6 sentences, focusing on visual elements, lighting, composition, mood, and style."
             },
             "model": {
                 "type": "string",
-                "description": f"The explicitly requested OpenRouter image model. Leave blank to use default."
+                "description": f"The explicitly requested OpenRouter image model. Leave blank to use default. Only specify this parameter if the user explicitly asks for a specific image model."
             }
         },
         "required": ["prompt"]
