@@ -6,13 +6,6 @@ services:
     container_name: ehub-app
     restart: unless-stopped
     env_file:
-      - .envd
+      - .env
     ports:
       - "8000:8000"
-    networks:
-      - default
-      - shared-lc-network
-
-networks:
-  shared-lc-network:
-    external: true

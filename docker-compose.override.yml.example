@@ -1,0 +1,8 @@
+services:
+  ehub:
+    networks:
+      - ehub-net
+
+networks:
+  ehub-net:
+    external: true
